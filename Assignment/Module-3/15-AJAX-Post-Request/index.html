@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./axios.min.js"></script>
+    <script>
+        async function CreateData(){
+            let URL = `https://api.example.com/submit`
+            //document.getElementById('loader').classList.remove('d-none')
+            let res = await axios.post(URL,
+            { 
+                "name": "John Doe",
+                "email": "johndoe@example.com" 
+            }
+            );
+            //document.getElementById('loader').classList.add('d-none')
+            if(res.status===200){
+              console.log("Data posted!")
+            }
+            else {
+              alert("error")
+            }
+        }
+        CreateData()
+    </script>
+</body>
+</html>

@@ -8,13 +8,17 @@
 <body>
     <script src="./axios.min.js"></script>
     <script>
-        let res=await axios.get('https://api.example.com/data');
-        if(res.status===200){
-            alert("success");
+        async function getData(){
+            let res=await axios.get('https://api.example.com/data');
+            if(res.status===200){
+                alert("success");
+                console.log(res.data);
+            }
+            else{
+                alert("ERROR");
+            }
         }
-        else{
-            alert("ERROR");
-        }
+        getData()
     </script>
 </body>
 </html>
