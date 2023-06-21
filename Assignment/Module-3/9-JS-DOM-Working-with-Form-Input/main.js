@@ -19,7 +19,9 @@ const checkUsername = () => {
         showError(usernameEl, 'Username cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
         showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
-    } else {
+    } else if(!istext(username)){
+        showError('Username must be characters.')
+    }else {
         showSuccess(usernameEl);
         valid = true;
     }
@@ -88,7 +90,7 @@ const isPasswordSecure = (password) => {
 };
 
 const isRequired = value => value === '' ? false : true;
-const istext= value => typeof value === 'string' ?true : false;
+const istext= value => typeof value != 'string' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 
