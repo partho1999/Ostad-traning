@@ -24,4 +24,4 @@ const result = countVowel(string);
 
 console.log(`there are ${result} vowel in this string`);
 console.log('the number of vowels:', result);
-alert('the number of vowels:'+result);
+alert('the number of vowels:'+ result);
