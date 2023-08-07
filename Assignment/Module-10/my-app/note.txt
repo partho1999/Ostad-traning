@@ -1,0 +1,53 @@
+Create NextJs app:
+
+step 1: Type following command on your terminal.
+
+================================================
+npx create-next-app
+================================================
+
+step 2: After that following prompts will asked.
+
+=================================================================
+What is your project named?  my-app
+Would you like to use TypeScript?  No / Yes
+Would you like to use ESLint? » No / Yes
+Would you like to use Tailwind CSS? » No / Yes
+Would you like to use `src/` directory? » No / Yes
+Would you like to use App Router? (recommended) » No / Yes
+Would you like to customize the default import alias? » No / Yes
+=================================================================
+
+For standard starter project you can select their selected answer or if you want to customize you can do by yours own slection.
+
+step 3: now you will see the project create complete. now go to your project directory and open your favourite code IDE then start coding you app.
+
+
+folder stracture:
+
+node_modules: It's containing the installed pagkage file . it helps to run the next applicaton in localhost
+
+public: It's containing the public assest like image logo . file which can be asses pubic 
+
+src: It's a optional folder you can make it by your choice. its helps to organize you apps folder.it's  a cover of apps folder.
+
+apps: It's conatining the file named favicon.svg, globals.css, layout.js and page.js . Minly will we will edit this files cause it will be needed to develop the the web app . here will write our next and react code.
+
+.gitignore: It's conatining the files name which will be ignored while we push our code in github.
+
+jsconfig.json: It's containing the compiling files path. will keep this default.
+
+next.config.js: Next.js can be configured through a next.config.js file in the root of your project directory with env, appDir, basePath, compress, distDir and many more.
+
+package-lock.json: it's json file which contain the json log of apps. its provide by node.
+
+package.json: Project dependencies and scripts. we can change on scripts to change the command.
+
+postcss.config.js: It's create because of we select talwindCSS for our project. when we select the tailwind of the time installtion its genarate this file automatically.
+
+README.md: it's a github file for showing our project description.
+
+tailwind.config.js: it's a tailwind config file.
+
+
+
