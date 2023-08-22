@@ -1,4 +1,5 @@
 import postList from '@/lib/getPostList';
+import Link from 'next/link';
 import React from 'react';
 
 const  blog = async () => {
@@ -13,7 +14,7 @@ const  blog = async () => {
             {
               posts.map((item, index)=>{
                 return(
-                  <div key={index} className="card w-96 bg-base-100 shadow-xl">
+                    <Link key={index} href={`/blog/${item.id}`}><div  className="card w-96 bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                       <img src={item.img} alt="img" className="rounded-xl" />
                     </figure>
@@ -21,7 +22,7 @@ const  blog = async () => {
                       <h2 className="card-title">{item.title}</h2>
                       <p>{item.short}</p>
                     </div>
-                  </div>
+                  </div></Link>
                 )
               })
             }
