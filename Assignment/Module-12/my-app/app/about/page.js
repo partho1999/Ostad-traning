@@ -15,15 +15,19 @@ const about =async () => {
             </div>
             <div>
                 <h1 className='text-center text-4xl'>Our Blogs Categories</h1>
-                {
-                    categories.map((item, index)=>{
-                        return(
-                            <div className='flex flex-row px-20'>
-                                <li>{item.name}</li>
+                    
+                            <div className='flex flex-row justify-center gap-5 my-8'>
+                                {
+                                    categories.map((item, index)=>{
+                                     return(    
+                                        <div className="badge badge-outline w-30 h-10">{item.name}</div>
+                                        )
+                                    })
+                                }
+                                
                             </div>
-                        )
-                    })
-                }
+                    
+           
             </div>
         </div>
     );
