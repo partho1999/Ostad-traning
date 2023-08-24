@@ -2,7 +2,7 @@ import React from 'react';
 
 const contact = () => {
     return (
-        <div>
+        <div className='my-8'>
             <h1 className='text-center text-4xl mt-8 b-4'>Contact Us</h1>
             <div className='flex flex-cols justify-center mt-8 gap-8'>
                 <div className="card w-96 bg-base-100 shadow-xl ">
