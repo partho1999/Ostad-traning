@@ -26,3 +26,65 @@ model users {
   profile           String             @db.Text()
   
 }
+
+model post{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  authorId          BigInt             @db.UnsignedBigInt
+  parentId          Int?
+  title             String             @db.VarChar(75)
+  metaTitle         String             @db.VarChar(100)
+  slug              String             @db.VarChar(100)
+  summary           String             @db.VarChar(255)
+  published         Int                @db.TinyInt()
+  createdAt         DateTime           @default(now()) @db.Timestamp(0)
+  updatedAt         DateTime           @default(now()) @db.Timestamp(0)
+  publishedAt       DateTime           @default(now()) @db.Timestamp(0)
+  content           String             @db.Text()
+}
+
+model post_comment{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt 
+  postId            BigInt             @db.UnsignedBigInt
+  parentId          Int?
+  title             String             @db.VarChar(100)
+  published         Int                @db.TinyInt()
+  createdAt         DateTime           @default(now()) @db.Timestamp(0)
+  publishedAt       DateTime           @default(now()) @db.Timestamp(0)
+  content           String             @db.Text()
+}
+
+model tag{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt 
+  title             String             @db.VarChar(75) 
+  metaTitle         String             @db.VarChar(100) 
+  slug              String             @db.VarChar(100)
+  content           String             @db.Text()
+}
+
+model post_tag{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt 
+  postId            BigInt             @db.UnsignedBigInt
+  tagId             BigInt             @db.UnsignedBigInt
+}
+
+model category{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt 
+  parentId          Int?
+  title             String             @db.VarChar(75) 
+  metaTitle         String             @db.VarChar(100) 
+  slug              String             @db.VarChar(100)
+  content           String             @db.Text()
+}
+
+model post_category{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  postId            BigInt             @db.UnsignedBigInt
+  catagoryId        BigInt             @db.UnsignedBigInt
+}
+
+model post_meta{
+  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  postId            BigInt             @db.UnsignedBigInt
+  key               String             @db.VarChar(50)
+  content           String             @db.Text()
+}
