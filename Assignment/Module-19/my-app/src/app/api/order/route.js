@@ -11,6 +11,7 @@ export async function GET(req,res) {
     }
     catch (e) {
         return  NextResponse.json({status:"fail",data:e})
+        
     }
 }
 
@@ -81,8 +82,6 @@ export async function DELETE(req,res) {
 
 export async function PATCH(req,res) {
     try{
-        let headerList=headers();
-        let user_id=headerList.get('id')
 
         let {searchParams}= new URL(req.url);
         let cus_id=searchParams.get('cus_id');
@@ -91,8 +90,7 @@ export async function PATCH(req,res) {
         const result=await prisma.order.findUnique(
             {
                 where:{
-                    id:parseInt(cus_id),
-                    user_id:parseInt(user_id)
+                    id:parseInt(cus_id)
                 }
             }
 

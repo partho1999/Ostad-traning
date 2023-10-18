@@ -12,7 +12,7 @@ datasource db {
 
 
 model users {
-  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  id                Int                @id @default(autoincrement())
   firstName         String             @db.VarChar(50)
   middleNme         String             @db.VarChar(50)
   lastName          String             @db.VarChar(50)
@@ -30,7 +30,7 @@ model users {
 }
 
 model categories {
-  id           BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
+  id           Int        @id @default(autoincrement()) 
   title        String     @db.VarChar(100)
   metaTitle    String     @db.VarChar(100)
   slug         String     @db.VarChar(100)
@@ -42,14 +42,14 @@ model categories {
 }
 
 model product{
-  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  id                Int                @id @default(autoincrement()) 
   firstName         String             @db.VarChar(100)
   metaTitle         String             @db.VarChar(100)
   slug              String             @db.VarChar(100)
   summary           String             @db.VarChar(100)
   price             Int                
   discount          Int
-  userId            BigInt             @db.UnsignedBigInt
+  userId            Int
   publishedAt       DateTime           @default(now()) @db.Timestamp(0)
   startsAt          DateTime           @default(now()) @db.Timestamp(0)
   endsAt            DateTime           @default(now()) @db.Timestamp(0)
@@ -61,28 +61,28 @@ model product{
 }
 
 model product_meta{
-  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  id                Int                @id @default(autoincrement()) 
   key               String             @db.VarChar(100)
   content           String             @db.VarChar(100)
-  productId         BigInt             @db.UnsignedBigInt
+  productId         Int             
   createdAt         DateTime           @default(now()) @db.Timestamp(0)
   updatedAt         DateTime           @default(now()) @db.Timestamp(0) @updatedAt
   products          product            @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
 
 model product_review{
-  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  id                Int             @id @default(autoincrement()) 
   title             String             @db.VarChar(100)
   rating            String             @db.VarChar(100)
   content           String             @db.VarChar(100)
-  productId         BigInt             @db.UnsignedBigInt
+  productId         Int             
   createdAt         DateTime           @default(now()) @db.Timestamp(0)
   updatedAt         DateTime           @default(now()) @db.Timestamp(0) @updatedAt
   products          product            @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
 
 model order{
-  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  id                Int             @id @default(autoincrement()) 
   title             String             @db.VarChar(100)
   token             String             @db.VarChar(100)
   subTotal          Int
@@ -98,14 +98,14 @@ model order{
   email             String             @unique(map: "users_email_unique") @db.VarChar(100)
   city              String             @db.VarChar(100)
   country           String             @db.VarChar(100)
-  userId            BigInt             @db.UnsignedBigInt
+  userId            Int             
   createdAt         DateTime           @default(now()) @db.Timestamp(0)
   updatedAt         DateTime           @default(now()) @db.Timestamp(0) @updatedAt
   users             users               @relation(fields: [userId], references: [id], onDelete: Restrict,onUpdate: Cascade)
 }
 
 model cart{
-  id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
+  id                Int             @id @default(autoincrement()) 
   title             String             @db.VarChar(100)
   sessionId         String             @db.VarChar(100)
   token             String             @db.VarChar(100)
@@ -116,7 +116,7 @@ model cart{
   email             String             @unique(map: "users_email_unique") @db.VarChar(100)
   city              String             @db.VarChar(100)
   country           String             @db.VarChar(100)
-  userId            BigInt             @db.UnsignedBigInt
+  userId            Int             
   createdAt         DateTime           @default(now()) @db.Timestamp(0)
   updatedAt         DateTime           @default(now()) @db.Timestamp(0) @updatedAt
   users             users               @relation(fields: [userId], references: [id], onDelete: Restrict,onUpdate: Cascade)

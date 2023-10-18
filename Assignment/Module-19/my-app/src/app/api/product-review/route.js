@@ -6,11 +6,12 @@ import {PrismaClient} from "@prisma/client";
 export async function GET(req,res) {
     try{
         const prisma=new PrismaClient();
-        const result=await prisma.product_review.findMany({})
+        const result=await prisma.product_meta.findMany({})
         return  NextResponse.json({status:"success",data:result})
     }
     catch (e) {
         return  NextResponse.json({status:"fail",data:e})
+        
     }
 }
 
@@ -20,7 +21,7 @@ export async function POST(req,res) {
         let reqBody=await req.json();
 
         const prisma=new PrismaClient();
-        const result=await prisma.product_review.create({data:reqBody})
+        const result=await prisma.product_meta.create({data:reqBody})
 
         return  NextResponse.json({status:"success",data:result})
     }
@@ -40,7 +41,7 @@ export async function PUT(req,res) {
         let cus_id = searchParams.get('cus_id');
 
         const prisma=new PrismaClient();
-        const result=await prisma.product_review.update(
+        const result=await prisma.product_meta.update(
             {
                 where: {id: parseInt(cus_id)},
                 data:reqBody
@@ -62,7 +63,7 @@ export async function DELETE(req,res) {
         let cus_id = searchParams.get('cus_id');
 
         const prisma = new PrismaClient();
-        const result = await prisma.product_review.delete(
+        const result = await prisma.product_meta.delete(
             {
                 where: {
                     id: parseInt(cus_id)
@@ -81,18 +82,15 @@ export async function DELETE(req,res) {
 
 export async function PATCH(req,res) {
     try{
-        let headerList=headers();
-        let user_id=headerList.get('id')
 
         let {searchParams}= new URL(req.url);
         let cus_id=searchParams.get('cus_id');
 
         const prisma=new PrismaClient();
-        const result=await prisma.product_review.findUnique(
+        const result=await prisma.product_meta.findUnique(
             {
                 where:{
-                    id:parseInt(cus_id),
-                    user_id:parseInt(user_id)
+                    id:parseInt(cus_id)
                 }
             }
 
