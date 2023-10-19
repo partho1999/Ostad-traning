@@ -63,13 +63,15 @@ export async function DELETE(req,res) {
         let cus_id = searchParams.get('cus_id');
 
         const prisma = new PrismaClient();
-        const result = await prisma.users.delete(
+        const result =  prisma.users.delete(
             {
                 where: {
                     id: parseInt(cus_id)
                 }
             }
         )
+        
+
         return NextResponse.json({status: "success", data: result})
 
     } catch (e) {
